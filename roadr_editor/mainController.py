@@ -9,6 +9,9 @@ class mainController(Ui_MainWindow, QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
 
-        pygame.init()
+        #pygame.init()
+        #self.ui.pgWidget.init(pygame.Surface(self.ui.pgWidget.getSize()), pygame.display)
 
-        self.ui.pgWidget.init(pygame.Surface(self.ui.pgWidget.getSize()), pygame.display)
+        self.scene = QGraphicsScene(self)
+        self.ui.graphicsView.setScene(self.scene)
+        self.scene.addText("Hello!")
