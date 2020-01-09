@@ -130,3 +130,6 @@ dmypy.json
 
 # vscode
 .vscode
+
+# qtpy compilied ui
+roadr_editor/main.py
