@@ -133,3 +133,4 @@ dmypy.json
 
 # qtpy compilied ui
 roadr_editor/main.py
+roadr_editor/settings.py
