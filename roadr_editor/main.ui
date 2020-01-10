@@ -120,8 +120,8 @@
     <property name="title">
      <string>Help</string>
     </property>
-    <addaction name="actionAbout_Qt"/>
     <addaction name="actionAbout"/>
+    <addaction name="actionAbout_Qt"/>
    </widget>
    <widget class="QMenu" name="menuMap">
     <property name="title">
@@ -165,7 +165,6 @@
    <addaction name="actionNew"/>
    <addaction name="actionOpen"/>
    <addaction name="actionSave"/>
-   <addaction name="actionSave_as"/>
    <addaction name="separator"/>
    <addaction name="actionProperties"/>
    <addaction name="separator"/>
