@@ -1,6 +1,7 @@
 from PyQt5.QtWidgets import *
 from PyQt5 import QtGui, QtCore
 from roadr_editor.main import Ui_MainWindow
+from roadr_editor.settingsController import settingsController
 
 class mainController(Ui_MainWindow, QMainWindow):
     def __init__(self):
@@ -14,6 +15,11 @@ class mainController(Ui_MainWindow, QMainWindow):
         self.scene.addRect(QtCore.QRectF(0, 0, 30, 20), pen=QtGui.QPen(), brush=QtGui.QBrush())
 
         self.ui.actionAbout_Qt.triggered.connect(lambda: self.openAboutQt())
+        self.ui.actionSettings.triggered.connect(lambda: self.openSettings())
 
     def openAboutQt(self):
         QMessageBox.aboutQt(self, "Road Runner Editor")
+
+    def openSettings(self):
+        self.settings = settingsController()
+        self.settings.show()
