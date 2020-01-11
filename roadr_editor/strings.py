@@ -1,0 +1,1 @@
+NOT_CONFIGURED = "Asset folder not configured. Please set in settings..."
