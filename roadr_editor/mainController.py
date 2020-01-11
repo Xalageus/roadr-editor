@@ -20,12 +20,10 @@ class mainController(Ui_MainWindow, QMainWindow):
         self.ui.actionPlace_Mode.setChecked(True)
         self.ui.tilesWidget.raise_()
 
-        self.noSettings = False
         self.assets = None
         self.settingsSYS = settings_system()
         if self.settingsSYS.noSettings:
             self.ui.statusbar.showMessage(printStrings.NOT_CONFIGURED)
-            self.noSettings = True
         else:
             self.readSettings()
         
@@ -57,7 +55,7 @@ class mainController(Ui_MainWindow, QMainWindow):
         QApplication.quit()
 
     def graphicsMouseMoveEvent(self):
-        if self.noSettings == True:
+        if self.settingsSYS.noSettings == True:
             self.ui.statusbar.showMessage(printStrings.NOT_CONFIGURED)
 
     def readSettings(self):
