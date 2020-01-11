@@ -8,6 +8,12 @@ class mainController(Ui_MainWindow, QMainWindow):
         super(mainController, self).__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+
+        self.tabifyDockWidget(self.ui.tilesWidget, self.ui.collWidget)
+        self.modeGroup = QActionGroup(self)
+        self.modeGroup.addAction(self.ui.actionSelection_Mode)
+        self.modeGroup.addAction(self.ui.actionPlace_Mode)
+        self.ui.actionPlace_Mode.setChecked(True)
         
         self.scene = QGraphicsScene(self)
         self.ui.graphicsView.setScene(self.scene)
