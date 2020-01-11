@@ -38,6 +38,8 @@ class mainController(Ui_MainWindow, QMainWindow):
         self.ui.actionPlace_Mode.toggled.connect(lambda: self.placeToggled(bool))
         self.ui.actionQuit.triggered.connect(lambda: self.quit())
 
+        self.resize(self.sizeHint())
+
     def openAboutQt(self):
         QMessageBox.aboutQt(self, printStrings.TITLE)
 
@@ -46,10 +48,10 @@ class mainController(Ui_MainWindow, QMainWindow):
         self.settings.show()
 
     def selectionToggled(self, toggle):
-        print(toggle)
+        print(toggle())
 
     def placeToggled(self, toggle):
-        print(toggle)
+        print(toggle())
 
     def quit(self):
         QApplication.quit()
@@ -64,3 +66,6 @@ class mainController(Ui_MainWindow, QMainWindow):
         self.assets.parseDef()
         self.assets.trimAll()
         self.assets.mergePaths()
+
+    def loadAssets(self):
+        print()
