@@ -3,6 +3,7 @@ from PyQt5 import QtGui, QtCore
 from roadr_editor.settings import Ui_Settings
 from roadr_editor.assets import asset_system
 from roadr_editor.settingssys import settings_system
+import roadr_editor.strings as printStrings
 
 class settingsController(Ui_Settings, QDialog):
     def __init__(self, settingsSYS, parent):
@@ -19,18 +20,18 @@ class settingsController(Ui_Settings, QDialog):
         self.ui.checkLabel.setVisible(False)
 
     def chooseFolder(self):
-        assetFolder = str(QFileDialog.getExistingDirectory(self, "Select Asset folder"))
+        assetFolder = str(QFileDialog.getExistingDirectory(self, printStrings.SELECT_ASSET_FOLDER))
         if assetFolder is not None:
-            self.ui.checkLabel.setText("Checking...")
+            self.ui.checkLabel.setText(printStrings.CHECKING)
             self.ui.assetLine.setText(assetFolder)
             self.ui.checkLabel.setVisible(True)
 
             assetSYS = asset_system(assetFolder)
             if assetSYS.checkFolder():
-                self.ui.checkLabel.setText("Asset folder is valid")
+                self.ui.checkLabel.setText(printStrings.ASSET_FOLDER_VALID)
                 self.ui.buttonBox.button(QDialogButtonBox.Ok).setEnabled(True)
             else:
-                self.ui.checkLabel.setText("Asset folder is invalid")
+                self.ui.checkLabel.setText(printStrings.ASSET_FOLDER_INVALID)
                 self.ui.buttonBox.button(QDialogButtonBox.Ok).setEnabled(False)
 
             self.changed = True

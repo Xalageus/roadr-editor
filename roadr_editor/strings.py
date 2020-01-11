@@ -1,1 +1,6 @@
+TITLE = "Road Runner Editor"
 NOT_CONFIGURED = "Asset folder not configured. Please set in settings..."
+SELECT_ASSET_FOLDER = "Select Asset folder"
+CHECKING = "Checking..."
+ASSET_FOLDER_VALID = "Asset folder is valid"
+ASSET_FOLDER_INVALID = "Asset folder is invalid"

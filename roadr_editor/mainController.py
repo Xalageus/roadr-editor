@@ -39,7 +39,7 @@ class mainController(Ui_MainWindow, QMainWindow):
         self.ui.actionQuit.triggered.connect(lambda: self.quit())
 
     def openAboutQt(self):
-        QMessageBox.aboutQt(self, "Road Runner Editor")
+        QMessageBox.aboutQt(self, printStrings.TITLE)
 
     def openSettings(self):
         self.settings = settingsController(self.settingsSYS, self)
