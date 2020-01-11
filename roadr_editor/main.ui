@@ -196,7 +196,25 @@
    <attribute name="dockWidgetArea">
     <number>2</number>
    </attribute>
-   <widget class="QWidget" name="propWidgetContents"/>
+   <widget class="QWidget" name="propWidgetContents">
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <property name="leftMargin">
+      <number>0</number>
+     </property>
+     <property name="topMargin">
+      <number>0</number>
+     </property>
+     <property name="rightMargin">
+      <number>0</number>
+     </property>
+     <property name="bottomMargin">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QListWidget" name="listWidget"/>
+     </item>
+    </layout>
+   </widget>
   </widget>
   <widget class="QDockWidget" name="tilesWidget">
    <property name="sizePolicy">
@@ -208,7 +226,7 @@
    <property name="minimumSize">
     <size>
      <width>300</width>
-     <height>38</height>
+     <height>250</height>
     </size>
    </property>
    <property name="features">
@@ -226,6 +244,18 @@
    <widget class="QWidget" name="tilesWidgetContents"/>
   </widget>
   <widget class="QDockWidget" name="collWidget">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>60</width>
+     <height>250</height>
+    </size>
+   </property>
    <property name="features">
     <set>QDockWidget::DockWidgetFloatable|QDockWidget::DockWidgetMovable</set>
    </property>
