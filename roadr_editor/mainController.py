@@ -66,6 +66,19 @@ class mainController(Ui_MainWindow, QMainWindow):
         self.assets.parseDef()
         self.assets.trimAll()
         self.assets.mergePaths()
+        self.loadAssets()
 
     def loadAssets(self):
-        print()
+        row = 0
+        num = 0
+        self.ui.tableWidget.insertRow(self.ui.tableWidget.rowCount())
+
+        for tile in self.assets.tiles:
+            if num == self.ui.tableWidget.columnCount():
+                row += 1
+                num = 0
+                self.ui.tableWidget.insertRow(self.ui.tableWidget.rowCount())
+
+            tileImage = QtGui.QImage(tile.filename)
+            self.ui.tableWidget.setItem(row, num, QTableWidgetItem(QtGui.QIcon(QtGui.QPixmap().fromImage(tileImage)), tile.id))
+            num += 1

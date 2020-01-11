@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>707</width>
-    <height>635</height>
+    <width>683</width>
+    <height>610</height>
    </rect>
   </property>
   <property name="mouseTracking">
@@ -113,7 +113,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>707</width>
+     <width>683</width>
      <height>22</height>
     </rect>
    </property>
@@ -196,7 +196,7 @@
    <property name="minimumSize">
     <size>
      <width>300</width>
-     <height>38</height>
+     <height>100</height>
     </size>
    </property>
    <property name="features">
@@ -241,7 +241,7 @@
    <property name="minimumSize">
     <size>
      <width>300</width>
-     <height>250</height>
+     <height>200</height>
     </size>
    </property>
    <property name="features">
@@ -256,7 +256,53 @@
    <attribute name="dockWidgetArea">
     <number>2</number>
    </attribute>
-   <widget class="QWidget" name="tilesWidgetContents"/>
+   <widget class="QWidget" name="tilesWidgetContents">
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <property name="leftMargin">
+      <number>0</number>
+     </property>
+     <property name="topMargin">
+      <number>0</number>
+     </property>
+     <property name="rightMargin">
+      <number>0</number>
+     </property>
+     <property name="bottomMargin">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QTableWidget" name="tableWidget">
+       <property name="editTriggers">
+        <set>QAbstractItemView::NoEditTriggers</set>
+       </property>
+       <property name="showGrid">
+        <bool>false</bool>
+       </property>
+       <property name="rowCount">
+        <number>0</number>
+       </property>
+       <property name="columnCount">
+        <number>6</number>
+       </property>
+       <attribute name="horizontalHeaderVisible">
+        <bool>false</bool>
+       </attribute>
+       <attribute name="horizontalHeaderDefaultSectionSize">
+        <number>49</number>
+       </attribute>
+       <attribute name="verticalHeaderVisible">
+        <bool>false</bool>
+       </attribute>
+       <column/>
+       <column/>
+       <column/>
+       <column/>
+       <column/>
+       <column/>
+      </widget>
+     </item>
+    </layout>
+   </widget>
   </widget>
   <widget class="QDockWidget" name="collWidget">
    <property name="sizePolicy">
@@ -267,8 +313,8 @@
    </property>
    <property name="minimumSize">
     <size>
-     <width>60</width>
-     <height>250</height>
+     <width>300</width>
+     <height>200</height>
     </size>
    </property>
    <property name="features">
