@@ -4,6 +4,7 @@ from roadr_editor.main import Ui_MainWindow
 from roadr_editor.settingsController import settingsController
 from roadr_editor.settingssys import settings_system
 import roadr_editor.strings as printStrings
+from roadr_editor.assets import asset_system
 
 class mainController(Ui_MainWindow, QMainWindow):
     def __init__(self):
@@ -20,7 +21,7 @@ class mainController(Ui_MainWindow, QMainWindow):
         self.ui.tilesWidget.raise_()
 
         self.noSettings = False
-
+        self.assets = None
         self.settingsSYS = settings_system()
         if self.settingsSYS.noSettings:
             self.ui.statusbar.showMessage(printStrings.NOT_CONFIGURED)
@@ -61,3 +62,7 @@ class mainController(Ui_MainWindow, QMainWindow):
 
     def readSettings(self):
         self.settingsSYS.parse()
+        self.assets = asset_system(self.settingsSYS.assetPath)
+        self.assets.parseDef()
+        self.assets.trimAll()
+        self.assets.mergePaths()
