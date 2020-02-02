@@ -23,9 +23,9 @@
    <bool>true</bool>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QHBoxLayout" name="horizontalLayout_2">
+   <layout class="QVBoxLayout" name="verticalLayout">
     <property name="spacing">
-     <number>0</number>
+     <number>6</number>
     </property>
     <property name="sizeConstraint">
      <enum>QLayout::SetMaximumSize</enum>
@@ -43,7 +43,7 @@
      <number>0</number>
     </property>
     <item>
-     <layout class="QVBoxLayout" name="editorVL">
+     <layout class="QHBoxLayout" name="rowButtons">
       <item>
        <widget class="QPushButton" name="addButton">
         <property name="sizePolicy">
@@ -63,46 +63,36 @@
         </property>
        </widget>
       </item>
-      <item>
-       <widget class="GraphicsTileView" name="graphicsView">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Minimum">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>360</width>
-          <height>512</height>
-         </size>
-        </property>
-        <property name="mouseTracking">
-         <bool>true</bool>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
-        </property>
-        <property name="resizeAnchor">
-         <enum>QGraphicsView::NoAnchor</enum>
-        </property>
-       </widget>
-      </item>
      </layout>
     </item>
     <item>
-     <widget class="QScrollBar" name="verticalScrollBar">
-      <property name="maximum">
-       <number>0</number>
+     <widget class="GraphicsTileView" name="graphicsView">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
       </property>
-      <property name="singleStep">
-       <number>1</number>
+      <property name="minimumSize">
+       <size>
+        <width>377</width>
+        <height>512</height>
+       </size>
       </property>
-      <property name="sliderPosition">
-       <number>0</number>
+      <property name="mouseTracking">
+       <bool>true</bool>
       </property>
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOn</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+      </property>
+      <property name="resizeAnchor">
+       <enum>QGraphicsView::NoAnchor</enum>
       </property>
      </widget>
     </item>
@@ -424,10 +414,30 @@
    <class>GraphicsTileView</class>
    <extends>QGraphicsView</extends>
    <header>roadr_editor/graphicsTileView</header>
+   <slots>
+    <slot>addRow()</slot>
+   </slots>
   </customwidget>
  </customwidgets>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>addButton</sender>
+   <signal>clicked()</signal>
+   <receiver>graphicsView</receiver>
+   <slot>addRow()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>224</x>
+     <y>61</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>230</x>
+     <y>210</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
  <slots>
   <signal>openAboutQt()</signal>
  </slots>
