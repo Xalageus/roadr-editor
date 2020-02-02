@@ -26,11 +26,6 @@ class mainController(Ui_MainWindow, QMainWindow):
             self.ui.statusbar.showMessage(printStrings.NOT_CONFIGURED)
         else:
             self.readSettings()
-        
-        self.scene = QGraphicsScene(self)
-        self.ui.graphicsView.setScene(self.scene)
-        self.scene.addText("Hello!")
-        self.scene.addRect(QtCore.QRectF(0, 0, 30, 20), pen=QtGui.QPen(), brush=QtGui.QBrush())
 
         self.ui.actionAbout_Qt.triggered.connect(lambda: self.openAboutQt())
         self.ui.actionSettings.triggered.connect(lambda: self.openSettings())
