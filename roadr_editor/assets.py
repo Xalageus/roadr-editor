@@ -1,4 +1,5 @@
 from xml.etree import ElementTree
+import os
 
 class asset_file():
     def __init__(self, name, id, filename):
@@ -15,7 +16,7 @@ class asset_system():
         self.map_path = None
         self.obj_path = None
         self.tile_path = None
-        self.assetFile = self.assetDir + "\\assets.xml"
+        self.assetFile = os.path.join(self.assetDir, "assets.xml")
 
     def parseDef(self):
         root = ElementTree.parse(self.assetFile).getroot()
@@ -55,13 +56,13 @@ class asset_system():
 
     def mergePaths(self):
         for asset in self.maps:
-            asset.filename = self.assetDir + "\\" + self.map_path + "\\" + asset.filename
+            asset.filename = os.path.join(self.assetDir, self.map_path, asset.filename)
 
         for asset in self.objs:
-            asset.filename = self.assetDir + "\\" + self.obj_path + "\\" + asset.filename
+            asset.filename = os.path.join(self.assetDir, self.obj_path, asset.filename)
         
         for asset in self.tiles:
-            asset.filename = self.assetDir + "\\" + self.tile_path + "\\" + asset.filename
+            asset.filename = os.path.join(self.assetDir, self.tile_path, asset.filename)
 
     def checkFolder(self):
         try:
