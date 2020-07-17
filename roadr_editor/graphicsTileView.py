@@ -5,11 +5,9 @@ class GraphicsTileView(QGraphicsView):
     def __init__(self, parent):
         super(GraphicsTileView, self).__init__(parent)
         self.uiParent = None
+        self.gScene = GraphicsTileScene(self)
 
-        scene = GraphicsTileScene(self)
-        self.setScene(scene)
-        scene.addText("Hello!")
-        scene.addRect(QtCore.QRectF(0, 0, 30, 20), pen=QtGui.QPen(), brush=QtGui.QBrush())
+        self.setScene(self.gScene)
 
     def setUiParent(self, parent):
         self.uiParent = parent
@@ -20,13 +18,28 @@ class GraphicsTileView(QGraphicsView):
 
     def addRow(self):
         rect = self.sceneRect()
-        rect.adjust(0, -40, 0, 0)
+        rect.adjust(0, -self.gScene.height, 0, 0)
         self.setSceneRect(rect)
+        self.gScene.addRow()
 
 class GraphicsTileScene(QGraphicsScene):
     def __init__(self, parent):
         super(GraphicsTileScene, self).__init__(parent)
+        self.width = 36
+        self.height = 32
+        self.rowCount = 0
 
-    def mouseMoveEvent(cls, self, QGraphicsSceneMouseEvent):
-        print(QGraphicsSceneMouseEvent.pos())
-        return super().mouseMoveEvent(self, QGraphicsSceneMouseEvent)
+        i = 0
+        while i < (self.height / 2):
+            self.addRow()
+            i += 1
+
+    def addRow(self):
+        self.drawGrid((-self.height) * self.rowCount)
+        self.rowCount += 1
+
+    def drawGrid(self, col):
+        i = 0
+        while i < 10:
+            self.addRect(QtCore.QRectF(i * self.width, col, self.width, self.height), pen=QtGui.QPen(), brush=QtGui.QBrush())
+            i += 1
